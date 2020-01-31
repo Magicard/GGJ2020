@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - wall
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: LR
+    uniqueID: 1383442033
     locked: 0
