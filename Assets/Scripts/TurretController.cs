@@ -7,6 +7,7 @@ public class TurretController : MonoBehaviour
     //gameobjects
     public GameObject turretRotator;
     public ParticleSystem turretFireSmoke;
+    public GameObject deathPrefab;
 
     //Turret Parameters
     public GameObject turretTarget;
@@ -76,7 +77,9 @@ public class TurretController : MonoBehaviour
 
     public void turretDeath()
     {
+        Debug.Log("Turret Destroyed", this);
         Destroy(this.gameObject);
+        Instantiate(deathPrefab, transform.position, transform.rotation);
     }
 
     /// <summary>
