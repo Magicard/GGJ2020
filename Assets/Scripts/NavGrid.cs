@@ -7,22 +7,31 @@ using UnityEngine;
 public class NavGrid : MonoBehaviour
 {
  
-    public Transform basePlate;
+    public  Transform basePlate;
     public float worldWidth;
     public float worldHeight;
     bool created = false;
     Vector3 topLeftPos;
     int maxNodesX;
     int maxNodesY;
-    public GameObject colliderObj;
+    public GameObject obs;
+    [SerializeField]
+    public List<Transform> G;
+    public List<Node> obMemory;
 
-    public float nodeSize =12f;
+
+
+
+
+    public  float nodeSize =12f;
 
     
-    public Node[,] Nodes;
+    public  Node[,] Nodes;
 
     void Start()
     {
+        obMemory = new List<Node>();
+
         worldWidth = basePlate.transform.lossyScale.x;
         worldHeight = basePlate.transform.lossyScale.y;
 
@@ -30,13 +39,17 @@ public class NavGrid : MonoBehaviour
         topLeftPos = new Vector3(basePlate.position.x - (worldWidth / 2), basePlate.position.y - (worldHeight / 2), 0);
         createNodes();
 
+        
 
     }
 
-    void createNodes()
+      void createNodes()
     {
         maxNodesX = Mathf.CeilToInt(worldWidth / nodeSize);
         maxNodesY = Mathf.CeilToInt(worldHeight / nodeSize);
+
+        BoxCollider2D c = new BoxCollider2D();
+        
 
         Nodes = new Node[maxNodesX,maxNodesY];
         for(int y = 0; y < maxNodesY; y++)
@@ -47,33 +60,30 @@ public class NavGrid : MonoBehaviour
                 BoxCollider2D[] cols = new BoxCollider2D[2];
                 
                 Nodes[x, y] = new Node(newNodePos.x, newNodePos.y, x, y, Mathf.Infinity);
-                colliderObj.transform.position = Nodes[x, y].position;
-                colliderObj.GetComponent<BoxCollider2D>().OverlapCollider(new ContactFilter2D(), cols);
-                bool l = colliderObj.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("wall"));
-                //Debug.Log(cols[0].gameObject.name);
-                /*
-                for (int i = 0; i < cols.GetLength(0); i++)
-                {
-                    if (cols[i].gameObject.layer == 8)
-                    {
-                        Nodes[x, y].isObstical = true;
-                        Nodes[x, y].col = Color.black;
+        
 
-                    }
-                }
-                */
+            }
 
-
-            if (l == true)
-                {
-                    //Nodes[x, y].isObstical = true;
-                    //Nodes[x, y].col = Color.black;
-                }
-                
+           
+        }
+        int mem = 0;
+        Debug.Log("Memory count" + mem.ToString());
+        if (obMemory.Count > 0)
+        {
+            
+            for( mem = 0; mem < obMemory.Count; mem++)
+            {
+                obMemory[mem].isObstical = true;
+                obMemory[mem].col = Color.black;
 
 
             }
         }
+        
+         
+       
+        
+
         created = true;
         //findPath(Nodes[7, 1], Nodes[1, 8]);
 
@@ -82,8 +92,7 @@ public class NavGrid : MonoBehaviour
     void OnDrawGizmos()
     {
         // Draw a semitransparent blue cube at the transforms position
-        Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawCube(transform.position, new Vector3(1, 1, 1));
+        
         if (created)
         {
             for (int y = 0; y < maxNodesY; y++)
@@ -106,8 +115,11 @@ public class NavGrid : MonoBehaviour
     {
         createNodes();
 
-        Node startNode = Nodes[Mathf.CeilToInt(startPos.x / nodeSize - topLeftPos.x) , Mathf.CeilToInt(startPos.y / nodeSize - topLeftPos.y)];
-        Node endNode = Nodes[Mathf.CeilToInt(endPos.x / nodeSize - topLeftPos.x) , Mathf.CeilToInt(endPos.y / nodeSize - topLeftPos.y)];
+        //Node startNode = Nodes[Mathf.RoundToInt(startPos.x / nodeSize - topLeftPos.x) , Mathf.RoundToInt(startPos.y / nodeSize - topLeftPos.y)];
+        //Node endNode = Nodes[Mathf.RoundToInt(endPos.x / nodeSize - topLeftPos.x) , Mathf.RoundToInt(endPos.y / nodeSize - topLeftPos.y)];
+
+        Node startNode = getNodeAt(startPos);
+        Node endNode = getNodeAt(endPos);
 
         startNode.col = Color.red;
         endNode.col = Color.green;
@@ -198,6 +210,44 @@ public class NavGrid : MonoBehaviour
 
 
 
+    }
+
+    public Node getNodeAt(Vector3 pos)
+    {
+        //Debug.Log(pos);
+        int trueX = Mathf.RoundToInt(pos.x + worldWidth/2);
+        int trueY = Mathf.RoundToInt(pos.y + worldHeight/2);
+
+        int x = Mathf.RoundToInt(trueX / nodeSize);
+        int y = Mathf.RoundToInt(trueY / nodeSize);
+
+        //int mx = Mathf.RoundToInt(maxNodesX - 1 * x);
+        //int my = Mathf.RoundToInt(maxNodesY - 1 * y);
+       // Debug.Log(x.ToString() + " " + y.ToString());
+
+
+        return Nodes[x, y];
+    }
+
+    public void makeObs(GameObject o)
+    {
+
+
+        //int trueX = Mathf.RoundToInt((o.transform.position.x + worldWidth / 2) / nodeSize);
+        //int trueY = Mathf.RoundToInt((o.transform.position.y + worldHeight / 2) / nodeSize);
+
+        int trueX = getNodeAt(o.transform.position).nodeX;
+        int trueY = getNodeAt(o.transform.position).nodeY;
+
+        int AW = Mathf.CeilToInt(o.transform.lossyScale.x / nodeSize);
+        int AH = Mathf.CeilToInt(o.transform.lossyScale.y / nodeSize);
+        Debug.Log(trueX.ToString() + " " + trueY.ToString());
+        Debug.Log(AW.ToString() + " " + AH.ToString());
+        obMemory.Add(Nodes[x, trueY]);
+        for (int x = trueX; x < trueX + AH;x++)
+        {
+            obMemory.Add(Nodes[x, trueY]);
+        }
     }
 
 }
