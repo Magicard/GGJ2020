@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.right);
+        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.right,9999,layerMask:LayerMask.GetMask("wall","enemy"));
         Vector3 hitPos = Vector3.zero;
 
         if (hit.collider != null)
