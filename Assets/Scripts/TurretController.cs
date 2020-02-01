@@ -78,4 +78,51 @@ public class TurretController : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    /// <summary>
+    /// Repairs the turret using avaliable scrap
+    /// </summary>
+    /// <param name="maxRepair">maximum amount of repair</param>
+    /// <returns>amount of scrap spent on repair</returns>
+    public int getRepaired(int maxRepair)
+    {
+        int spent = 0;
+
+        if (turretAmmo<turretAmmoMax)
+        {
+            int ammoShortage = turretAmmoMax - turretAmmo;
+            if(ammoShortage<maxRepair)
+            {
+                maxRepair -= ammoShortage;
+                turretAmmo = turretAmmoMax;
+                spent += ammoShortage;
+            }
+            else
+            {
+                spent += maxRepair;
+                turretAmmo += maxRepair;
+                maxRepair = 0;
+            }
+        }
+
+        var damageController = GetComponent<DamagableObject>();
+        if (damageController.Health < damageController.HealthMax)
+        {
+            float healthShortage = damageController.HealthMax - damageController.Health;
+            if (healthShortage < maxRepair)
+            {
+                maxRepair -= (int)healthShortage;
+                damageController.Health = damageController.HealthMax;
+                spent += (int)healthShortage;
+            }
+            else
+            {
+                spent += maxRepair;
+                damageController.Health += maxRepair;
+                maxRepair = 0;
+            }
+        }
+
+        return spent;
+    }
 }
