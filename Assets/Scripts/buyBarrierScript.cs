@@ -18,6 +18,6 @@ public class buyBarrierScript : MonoBehaviour
     void TaskOnClick()
     {
         Debug.Log("yeah");
-        amountOfBarriers++;
+        amountOfBarriers += 1 ;
     }
 }

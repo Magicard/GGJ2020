@@ -25,11 +25,9 @@ public class NavGrid : MonoBehaviour
         worldWidth = basePlate.transform.lossyScale.x;
         worldHeight = basePlate.transform.lossyScale.y;
 
-        Debug.Log(worldWidth.ToString() + " " +  worldHeight.ToString());
 
         topLeftPos = new Vector3(basePlate.position.x - (worldWidth / 2), basePlate.position.y - (worldHeight / 2), 0);
         createNodes();
-        Debug.Log(Nodes[0, 0]);
 
 
     }
@@ -38,8 +36,6 @@ public class NavGrid : MonoBehaviour
     {
         maxNodesX = Mathf.CeilToInt(worldWidth / nodeSize);
         maxNodesY = Mathf.CeilToInt(worldHeight / nodeSize);
-        
-        Debug.Log(maxNodesX.ToString() + " " + maxNodesY.ToString());
 
         Nodes = new Node[maxNodesX,maxNodesY];
         for(int y = 0; y < maxNodesY; y++)
@@ -135,7 +131,6 @@ public class NavGrid : MonoBehaviour
                     closedNode = closedNode.parent;
 
                 }
-                Debug.Log("Found path");
                 startNode.col = Color.red;
                 endNode.col = Color.green;
                 //path.Reverse();
@@ -146,7 +141,6 @@ public class NavGrid : MonoBehaviour
             }
 
             List<Node> neighbours = CurrentNode.getNeighbours(Nodes);
-            Debug.Log("Got Neighbours of " + neighbours.Count.ToString());
 
             for(int n = 0; n < neighbours.Count; n++)
             {

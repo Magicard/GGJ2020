@@ -94,12 +94,10 @@ public class EnemyController : MonoBehaviour
 
     void getPath()
     {
-        Debug.Log("Getting Path");
 
         moving = true;
         Node[] path = nav.GetComponent<NavGrid>().findPath(transform.position, targetTo);
         
-        Debug.Log("Got " + path.Length.ToString() + " Paths");
 
         /*
         List<Vector3> tempPos = new List<Vector3>();
