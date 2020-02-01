@@ -135,7 +135,7 @@ public class EnemyController : MonoBehaviour
         rotationpoint.transform.localRotation = Quaternion.Slerp(rotationpoint.transform.localRotation, Quaternion.Euler(0, 0, limitedAngle), Time.deltaTime * 1);
 
         //check if should fire
-        if ((rotationpoint.transform.rotation.eulerAngles.z - targetAngle) % 360 < 3 || (rotationpoint.transform.rotation.eulerAngles.z - targetAngle) % 360 > 357)
+        if ((rotationpoint.transform.localRotation.eulerAngles.z - targetAngle) % 360 < 3 || (rotationpoint.transform.localRotation.eulerAngles.z - targetAngle) % 360 > 357)
         {
             if (Vector2.Distance(player.transform.position, transform.position) < 2)
             {
