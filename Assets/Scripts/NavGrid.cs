@@ -14,6 +14,7 @@ public class NavGrid : MonoBehaviour
     Vector3 topLeftPos;
     int maxNodesX;
     int maxNodesY;
+    public GameObject colliderObj;
 
     public float nodeSize =12f;
 
@@ -43,7 +44,23 @@ public class NavGrid : MonoBehaviour
             for(int x = 0; x < maxNodesX; x++)
             {
                 Vector3 newNodePos = new Vector3(topLeftPos.x + (nodeSize * x), topLeftPos.y + (nodeSize * y), 1);
+                BoxCollider2D[] cols = new BoxCollider2D[2];
+                
                 Nodes[x, y] = new Node(newNodePos.x, newNodePos.y, x, y, Mathf.Infinity);
+                colliderObj.transform.position = Nodes[x, y].position;
+                colliderObj.GetComponent<BoxCollider2D>().OverlapCollider(new ContactFilter2D(), cols);
+                //Debug.Log(cols[0].gameObject.name);
+
+                for (int i = 0; i < cols.GetLength(0); i++)
+                {
+                    if (cols[i].gameObject.layer == 8)
+                    {
+                        //Nodes[x, y].isObstical = true;
+                        //Nodes[x, y].col = Color.black;
+
+                    }
+                }
+                
 
 
             }

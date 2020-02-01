@@ -4911,9 +4911,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretRotator: {fileID: 2056020475113114039}
-  turretAngle: 0
-  turetTranslationSpeed: 1
   turretFireSmoke: {fileID: 7600281694709989032}
+  turretAngle: 0
+  turretTranslationSpeed: 1
+  turretMinFireIterval: 5
+  turretAmmoMax: 10
+  turretAmmo: 5
+  turretHealthMax: 20
+  turretHealth: 0
 --- !u!1 &8394666944291257568
 GameObject:
   m_ObjectHideFlags: 0
