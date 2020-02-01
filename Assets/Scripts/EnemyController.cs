@@ -36,18 +36,26 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetTo = player.transform.position;
+        if (player != null)
+        {
+            targetTo = player.transform.position;
+        }
+        else
+        {
+            targetTo = transform.position;
+        }
 
         getPath();
 
+      
+        Vector2 pos = transform.position;
+        float hspd;
+        float vspd;
 
-        
-            
-            Vector2 pos = transform.position;
-            float hspd;
-            float vspd;
-
-            if (pos.x < target.x){
+        if(Vector2.Distance(targetTo, pos) > 1)
+        {
+            if (pos.x < target.x)
+            {
                 hspd = speed;
             }
             else
@@ -55,7 +63,7 @@ public class EnemyController : MonoBehaviour
                 hspd = -speed;
             }
 
-            if(pos.y < target.y)
+            if (pos.y < target.y)
             {
                 vspd = speed;
             }
@@ -63,38 +71,47 @@ public class EnemyController : MonoBehaviour
             {
                 vspd = -1;
             }/*
-            if (Vector3.Distance(gameObject.transform.position, target) < nodeSize)
-            {
-                if(targetIndex + 1 < maxIndex)
+                if (Vector3.Distance(gameObject.transform.position, target) < nodeSize)
                 {
-                    targetIndex++;
+                    if(targetIndex + 1 < maxIndex)
+                    {
+                        targetIndex++;
 
-                    target = targets[targetIndex];
+                        target = targets[targetIndex];
 
+                    }
+                    else
+                    {
+                        moving = false;
+                    }
                 }
-                else
-                {
-                    moving = false;
-                }
-            }
-            */
+                */
+        }
+        else
+        {
+            hspd = 0;
+            vspd = 0;
+        }
 
 
 
-            transform.position = new Vector3(pos.x + hspd * Time.deltaTime, pos.y + vspd * Time.deltaTime,-2);
+        transform.position = new Vector3(pos.x + hspd * Time.deltaTime, pos.y + vspd * Time.deltaTime,-2);
 
-            float angleRad = Mathf.Atan2((target.y - transform.position.y), ((target.x - transform.position.x)));
-            float angle = (180 / Mathf.PI) * angleRad;
-            angle -= 90;
+        float angleRad = Mathf.Atan2((target.y - transform.position.y), ((target.x - transform.position.x)));
+        float angle = (180 / Mathf.PI) * angleRad;
+        angle -= 90;
 
-            gameObject.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
+        gameObject.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, angle);
 
 
 
         //rotate head towards target
-        Vector2 targetPositionVector = player.transform.position - head.transform.position;
-        float targetAngle = Vector2.SignedAngle(transform.up, targetPositionVector);
-        head.transform.localRotation = Quaternion.Slerp(head.transform.localRotation, Quaternion.Euler(0, 0, targetAngle), Time.deltaTime * 1);
+        if (player != null)
+        {
+            Vector2 targetPositionVector = player.transform.position - head.transform.position;
+            float targetAngle = Vector2.SignedAngle(transform.up, targetPositionVector);
+            head.transform.localRotation = Quaternion.Slerp(head.transform.localRotation, Quaternion.Euler(0, 0, targetAngle), Time.deltaTime * 1);
+        }
 
 
         laserUpdate(ArmL, -15, 45);
@@ -105,6 +122,12 @@ public class EnemyController : MonoBehaviour
 
     void laserUpdate(GameObject rotationpoint,float minangle,float maxangle)
     {
+        if(player == null)
+        {
+            laserNotFire(rotationpoint);
+            return;
+        }
+
         //rotate head towards target
         Vector2 targetPositionVector = player.transform.position - rotationpoint.transform.position;
         float targetAngle = Vector2.SignedAngle(transform.up, targetPositionVector);
@@ -116,18 +139,38 @@ public class EnemyController : MonoBehaviour
         {
             if (Vector2.Distance(player.transform.position, transform.position) < 2)
             {
-                laserFire();
+                laserFire(rotationpoint);
             }
+            else
+            {
+                laserNotFire(rotationpoint);
+            }
+        }
+        else
+        {
+            laserNotFire(rotationpoint);
         }
     }
 
     /// <summary>
     /// Triggers actions required when the turret fires
     /// </summary>
-    void laserFire()
+    void laserFire(GameObject rotationpoint)
     {
         //attack
         player.GetComponent<DamagableObject>().RecieveHit(5*Time.deltaTime);
+        var flash = rotationpoint.GetComponentInChildren<ParticleSystem>();
+        Debug.Log("effect", flash);
+        if (!flash.isPlaying)
+            flash.Play();
+    }
+
+    /// <summary>
+    /// Triggers actions required when the turret fires
+    /// </summary>
+    void laserNotFire(GameObject rotationpoint)
+    {
+        rotationpoint.GetComponentInChildren<ParticleSystem>().Stop();
     }
 
 
