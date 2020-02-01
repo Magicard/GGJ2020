@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4890703153200322342}
   - component: {fileID: 4890703153200322343}
-  - component: {fileID: 4890703153200322336}
+  - component: {fileID: 6063904420221028192}
   m_Layer: 0
   m_Name: Barricade
   m_TagString: Untagged
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4890703153200322336
+--- !u!114 &6063904420221028192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,4 +95,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barricade: {fileID: 4890703153200322337, guid: 4896a8c952c3fd84dbd2d1fc4470db0e,
     type: 3}
-  moveSpeed: 20
+  hud: {fileID: 3971249689338493903, guid: 4caa02ac838806947879d26a13448c43, type: 3}
+  moveSpeed: 10
