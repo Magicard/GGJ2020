@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject.name);
+            //Debug.Log(hit.collider.gameObject.name);
 
             if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 9)
             {
