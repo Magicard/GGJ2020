@@ -57,7 +57,9 @@ public class PlayerController : MonoBehaviour
         verticalVel *= speed;
 
         Vector3 pos = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(pos.x + horrizontalVel * Time.deltaTime, pos.y + verticalVel * Time.deltaTime, pos.z);
+        //gameObject.transform.position = new Vector3(pos.x + horrizontalVel * Time.deltaTime, pos.y + verticalVel * Time.deltaTime, pos.z);
+        gameObject.GetComponent<Rigidbody2D>().MovePosition(new Vector3(pos.x + horrizontalVel * Time.deltaTime, pos.y + verticalVel * Time.deltaTime, pos.z));
+
 
         Vector3 mousePos = Input.mousePosition;
         Vector3 realMousePos = Camera.main.ScreenToWorldPoint(mousePos);
