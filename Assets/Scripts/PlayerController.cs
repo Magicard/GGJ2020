@@ -17,6 +17,18 @@ public class PlayerController : MonoBehaviour
 
 
     // Start is called before the first frame update
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Player collided");
+        if (col.gameObject.layer == 8){
+            Debug.Log("Player collided");
+            hspd = 0;
+            vspd = 0;
+
+        }
+    }
+
     void Start()
     {
         halfSpeed = speed / 2;
@@ -58,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.right);
+        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.right, 99999,layerMask:8);
         Vector3 hitPos = Vector3.zero;
 
         if (hit.collider != null)
@@ -108,4 +120,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    
 }

@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
 
     bool moving = false;
-    float speed = 0.5f;
+    public float speed = 0.5f;
     Vector3 target;
      Node[] targets;
     public int targetIndex = 0;
