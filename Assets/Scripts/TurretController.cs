@@ -31,6 +31,7 @@ public class TurretController : MonoBehaviour
     {
         if(turretTarget==null)
         {
+            turretTarget = FindObjectOfType<EnemyController>().gameObject;
             return;
         }
         //get angle to target
