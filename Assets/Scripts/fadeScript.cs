@@ -31,10 +31,13 @@ public class fadeScript : MonoBehaviour
             Destroy(col5);
         }
 
-        timer += Time.deltaTime;
-        Color oldCol = col1.color;
-        Color newCol = new Color(oldCol.r, oldCol.g, oldCol.b, oldCol.a -= 0.5f* Time.deltaTime);
-        col1.color = newCol;
+        if (col5 != null)
+        {
+            timer += Time.deltaTime;
+            Color oldCol = col1.color;
+            Color newCol = new Color(oldCol.r, oldCol.g, oldCol.b, oldCol.a -= 0.5f * Time.deltaTime);
+            col1.color = newCol;
+        }
         if (timer >=5 )
         {
             Color oldCol2 = col2.color;

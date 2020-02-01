@@ -4080,38 +4080,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154143338}
   m_CullTransparentMesh: 0
---- !u!1 &1182766126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8371494132599167342, guid: b38efd6f9fdebcb4b854ff585226bc93,
-    type: 3}
-  m_PrefabInstance: {fileID: 1423331474}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1182766128 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 847095242585617247, guid: b38efd6f9fdebcb4b854ff585226bc93,
     type: 3}
   m_PrefabInstance: {fileID: 1423331474}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182766126}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1182766131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182766126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2361ec8e3ff93d045adb1382d7490554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yourButton: {fileID: 1182766128}
-  amountOfBarriers: 0
 --- !u!1 &1222163743
 GameObject:
   m_ObjectHideFlags: 0
@@ -5249,7 +5229,7 @@ PrefabInstance:
     - target: {fileID: 6522974486729079158, guid: b38efd6f9fdebcb4b854ff585226bc93,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 117.09004
+      value: 234.2128
       objectReference: {fileID: 0}
     - target: {fileID: 6224265934671527794, guid: b38efd6f9fdebcb4b854ff585226bc93,
         type: 3}
@@ -5366,12 +5346,12 @@ PrefabInstance:
     - target: {fileID: 5567109617362401135, guid: b38efd6f9fdebcb4b854ff585226bc93,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.6097
+      value: 0.15374112
       objectReference: {fileID: 0}
     - target: {fileID: 5567109617362401135, guid: b38efd6f9fdebcb4b854ff585226bc93,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.00000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4571636845002892180, guid: b38efd6f9fdebcb4b854ff585226bc93,
         type: 3}
@@ -7515,6 +7495,20 @@ MonoBehaviour:
   shopActive: 0
   shopButton: {fileID: 186714476}
   shopButton2: {fileID: 951714008}
+--- !u!114 &1911763219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911763213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2361ec8e3ff93d045adb1382d7490554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yourButton: {fileID: 1182766128}
+  amountOfBarriers: 2
 --- !u!1 &1914778328
 GameObject:
   m_ObjectHideFlags: 0
@@ -8291,9 +8285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a814b43ce9dbb204b86741d8d15c6a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 7664125283934927951, guid: 345c95f67582c92409045423f3199ce3, type: 3}
+  box: {fileID: 7664125283934927951, guid: 9fc38ff6df1975c4b8d58096fc5f87c3, type: 3}
+  box2: {fileID: 4976946216175779600, guid: 4789288128ba99a44942d799151a6dc2, type: 3}
   camera: {fileID: 2135472802}
-  shopChoice: {fileID: 1182766126}
+  shopChoice: {fileID: 1911763213}
 --- !u!1 &2114565699
 GameObject:
   m_ObjectHideFlags: 0

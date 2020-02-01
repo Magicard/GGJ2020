@@ -59,7 +59,10 @@ public class Node
             {
                 if (!(i == 0 && j== 0))
                 {
+<<<<<<< HEAD
+=======
                     //Debug.Log(j.ToString() + " " + i.ToString());
+>>>>>>> af2db5b08b1ec6fb82a443319ded4ec755ac560d
                     // check x in bounds
                     if((i + nodeY < maxY && i+nodeY > -1) && (j + nodeX > -1 && j + nodeX < maxX))
                     {
