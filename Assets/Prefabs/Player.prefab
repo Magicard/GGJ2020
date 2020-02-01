@@ -105,6 +105,8 @@ GameObject:
   - component: {fileID: 6709824583789901279}
   - component: {fileID: 2097976402}
   - component: {fileID: 348795876323535390}
+  - component: {fileID: 2097976405}
+  - component: {fileID: 2097976406}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -312,9 +314,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   box: {fileID: 4890703153200322337, guid: 4896a8c952c3fd84dbd2d1fc4470db0e, type: 3}
   oneInHand: 0
-  box2: {fileID: 4890703153200322337, guid: 222db68298e51c34a8788aadded1852c, type: 3}
+  barrier: {fileID: 4890703153200322337, guid: efd734a004ec2c64f984a96f95700aa5, type: 3}
+  sentry: {fileID: 0}
+  reinforced: {fileID: 0}
   camera: {fileID: 0}
   shopChoice: {fileID: 0}
+  weaponChosen: 0
 --- !u!114 &348795876323535390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,3 +350,40 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!50 &2097976405
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709824583789901275}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &2097976406
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709824583789901275}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.045851976}
+  serializedVersion: 2
+  m_Radius: 0.394148
