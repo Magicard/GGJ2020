@@ -12,6 +12,8 @@ public class fadeScript : MonoBehaviour
     public Image col3;
     public Image col4;
     public Image col5;
+    public Image col6;
+    public Image col7;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,8 @@ public class fadeScript : MonoBehaviour
             Destroy(col3);
             Destroy(col4);
             Destroy(col5);
+            Destroy(col6);
+            Destroy(col7);
         }
 
         if (col5 != null)
@@ -58,6 +62,12 @@ public class fadeScript : MonoBehaviour
                         Color oldCol5 = col5.color;
                         Color newCol5 = new Color(oldCol5.r, oldCol5.g, oldCol5.b, oldCol5.a -= 0.5f * Time.deltaTime);
                         col5.color = newCol5;
+                        Color oldCol6 = col6.color;
+                        Color newCol6 = new Color(oldCol6.r, oldCol6.g, oldCol6.b, oldCol6.a -= 0.5f * Time.deltaTime);
+                        col6.color = newCol6;
+                        Color oldCol7 = col7.color;
+                        Color newCol7 = new Color(oldCol7.r, oldCol7.g, oldCol7.b, oldCol7.a -= 0.5f * Time.deltaTime);
+                        col7.color = newCol7;
                         Destroy(text);
                     }
                 }
