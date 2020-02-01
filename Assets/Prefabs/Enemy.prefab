@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987515777629128733}
   - component: {fileID: 998439557114285918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5944668365095597898}
   - component: {fileID: 37310345188077226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8851413464301450024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2346265476423199194}
   - component: {fileID: 8238228993367537723}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 2450773364937774559}
   - component: {fileID: 50846110594687482}
   - component: {fileID: 2136984814283686426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5036,7 +5036,7 @@ GameObject:
   - component: {fileID: 3057639521161471485}
   - component: {fileID: 3057551494181398134}
   - component: {fileID: 6675194466368197846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5125,7 +5125,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00000008940697, y: 0.07847577}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5136,7 +5136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.72, y: 0.97}
+  m_Size: {x: 0.77829057, y: 0.44938004}
   m_EdgeRadius: 0
 --- !u!1 &6356557130284094946
 GameObject:
@@ -5147,7 +5147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 42695582176361236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LarmGymbal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5179,7 +5179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5816245131861560279}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RarmGymbal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5213,7 +5213,7 @@ GameObject:
   - component: {fileID: 8878692609347977376}
   - component: {fileID: 4510211757650936850}
   - component: {fileID: 5511233900257630375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9965,7 +9965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647224723795131333}
   - component: {fileID: 6370563383456400050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
