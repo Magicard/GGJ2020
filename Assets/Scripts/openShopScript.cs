@@ -22,12 +22,13 @@ public class openShopScript : MonoBehaviour
     {
         if (shopActive == false)
         {
-            Time.timeScale = 0.2f;
+            Time.timeScale = 1f;
             shopActive = true;
         }
         else if (shopActive == true)
         {
-            Time.timeScale = 1f;
+            Time.timeScale = 0.2f;
+
             shopActive = false;
             
         }
@@ -38,12 +39,12 @@ public class openShopScript : MonoBehaviour
         if (shopActive == true)
         {
             Vector3 newPos = new Vector3(shopButton.transform.position.x, shopButton.transform.position.y, shopButton.transform.position.z );
-            transform.position = Vector3.Slerp(transform.position, newPos, Time.deltaTime * 10f);
+            transform.position = Vector3.Slerp(transform.position, newPos, Time.deltaTime * 4f);
         }
         else if (shopActive == false)
         {
             Vector3 newPos2 = new Vector3(shopButton2.transform.position.x, shopButton2.transform.position.y, shopButton2.transform.position.z);
-            transform.position = Vector3.Slerp(transform.position, newPos2, Time.deltaTime * 4f);
+            transform.position = Vector3.Slerp(transform.position, newPos2, Time.deltaTime * 10f);
         }
     }
 
