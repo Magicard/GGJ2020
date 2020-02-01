@@ -70,5 +70,33 @@ public class RepairableObject : MonoBehaviour
             amount = GetComponent<TurretController>().getRepaired(amount);
             resourceManager.SpendScrap(amount);
         }
+        else
+        {
+            amount = BasicHealthRepair(amount);
+            resourceManager.SpendScrap(amount);
+        }
+    }
+
+    int BasicHealthRepair(int maxRepair)
+    {
+        int spent=0;
+        var damageController = GetComponent<DamagableObject>();
+        if (damageController.Health < damageController.HealthMax)
+        {
+            float healthShortage = damageController.HealthMax - damageController.Health;
+            if (healthShortage < maxRepair)
+            {
+                maxRepair -= (int)healthShortage;
+                damageController.Health = damageController.HealthMax;
+                spent += (int)healthShortage;
+            }
+            else
+            {
+                spent += maxRepair;
+                damageController.Health += maxRepair;
+                maxRepair = 0;
+            }
+        }
+        return spent;
     }
 }
