@@ -68,4 +68,9 @@ public class TurretController : MonoBehaviour
             //turret has no ammo (run no ammo error)
         }
     }
+
+    public void turretDeath()
+    {
+        Destroy(this.gameObject);
+    }
 }
