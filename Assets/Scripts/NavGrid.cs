@@ -53,7 +53,7 @@ public class NavGrid : MonoBehaviour
             }
         }
         created = true;
-        findPath(Nodes[7, 1], Nodes[1, 8]);
+        //findPath(Nodes[7, 1], Nodes[1, 8]);
 
     }
 
@@ -80,8 +80,12 @@ public class NavGrid : MonoBehaviour
         }
     }
 
-    public Node[] findPath(Node startNode,Node endNode)
+    public Node[] findPath(Vector3 startPos,Vector3 endPos)
     {
+        createNodes();
+
+        Node startNode = Nodes[Mathf.CeilToInt(startPos.x / nodeSize - topLeftPos.x) , Mathf.CeilToInt(startPos.y / nodeSize - topLeftPos.y)];
+        Node endNode = Nodes[Mathf.CeilToInt(endPos.x / nodeSize - topLeftPos.x) , Mathf.CeilToInt(endPos.y / nodeSize - topLeftPos.y)];
 
         startNode.col = Color.red;
         endNode.col = Color.green;
@@ -127,13 +131,14 @@ public class NavGrid : MonoBehaviour
                 while (closedNode != null){
                     closedNode.col = Color.blue;
 
-                    closedList.Add(closedNode);
+                    path.Add(closedNode);
                     closedNode = closedNode.parent;
 
                 }
                 Debug.Log("Found path");
                 startNode.col = Color.red;
                 endNode.col = Color.green;
+                //path.Reverse();
                 return path.ToArray();
                 
 
