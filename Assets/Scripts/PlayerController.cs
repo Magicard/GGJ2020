@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
         for (int i = 0; i < Positions.Length; i++)
         {
-            Positions[i].z = 2;
+            Positions[i].z = gameObject.transform.position.z + 0.01f;
 
         }
         Color lineColor = new Color(255, 0, 0, 0.5f);
