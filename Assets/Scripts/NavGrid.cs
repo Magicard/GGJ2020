@@ -53,16 +53,25 @@ public class NavGrid : MonoBehaviour
                 Nodes[x, y] = new Node(newNodePos.x, newNodePos.y, x, y, Mathf.Infinity);
                 colliderObj.transform.position = Nodes[x, y].position;
                 colliderObj.GetComponent<BoxCollider2D>().OverlapCollider(new ContactFilter2D(), cols);
+                bool l = colliderObj.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("wall"));
                 //Debug.Log(cols[0].gameObject.name);
-
+                /*
                 for (int i = 0; i < cols.GetLength(0); i++)
                 {
                     if (cols[i].gameObject.layer == 8)
                     {
-                        //Nodes[x, y].isObstical = true;
-                        //Nodes[x, y].col = Color.black;
+                        Nodes[x, y].isObstical = true;
+                        Nodes[x, y].col = Color.black;
 
                     }
+                }
+                */
+
+
+            if (l == true)
+                {
+                    Nodes[x, y].isObstical = true;
+                    Nodes[x, y].col = Color.black;
                 }
                 
 

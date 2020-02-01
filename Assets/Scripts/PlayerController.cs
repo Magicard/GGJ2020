@@ -70,12 +70,14 @@ public class PlayerController : MonoBehaviour
 
 
 
-        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.right, 99999,layerMask:8);
+        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.right);
         Vector3 hitPos = Vector3.zero;
 
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.layer == 8)
+            Debug.Log(hit.collider.gameObject.name);
+
+            if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 9)
             {
                 hitPos = hit.point;
             }
