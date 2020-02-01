@@ -66,8 +66,8 @@ public class NavGrid : MonoBehaviour
 
             if (l == true)
                 {
-                    Nodes[x, y].isObstical = true;
-                    Nodes[x, y].col = Color.black;
+                    //Nodes[x, y].isObstical = true;
+                    //Nodes[x, y].col = Color.black;
                 }
                 
 
