@@ -9,6 +9,7 @@ public class selectScript : MonoBehaviour
     public GameObject cameraObj;
     public GameObject newBtn;
     public bool selectOption = true;
+    public bool stopMoving = false;
     public bool down = false;
     public bool up = false;
     // Start is called before the first frame update
@@ -64,6 +65,7 @@ public class selectScript : MonoBehaviour
 
     void setGameUIActive()
     {
+        stopMoving = true;
         gameUI.SetActive(true);
     }
 
