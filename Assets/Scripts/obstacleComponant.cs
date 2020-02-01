@@ -13,7 +13,7 @@ public class obstacleComponant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       manager.makeObs(gameObject.gameObject);
+       //manager.makeObs(gameObject.gameObject);
 
 
     }

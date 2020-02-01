@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class NavGrid : MonoBehaviour
 {
- 
-    public  Transform basePlate;
+
+    public Transform basePlate;
     public float worldWidth;
     public float worldHeight;
     bool created = false;
@@ -23,10 +23,10 @@ public class NavGrid : MonoBehaviour
 
 
 
-    public  float nodeSize =12f;
+    public float nodeSize = 12f;
 
-    
-    public  Node[,] Nodes;
+
+    public Node[,] Nodes;
 
     void Start()
     {
@@ -39,39 +39,39 @@ public class NavGrid : MonoBehaviour
         topLeftPos = new Vector3(basePlate.position.x - (worldWidth / 2), basePlate.position.y - (worldHeight / 2), 0);
         createNodes();
 
-        
+
 
     }
 
-      void createNodes()
+    void createNodes()
     {
         maxNodesX = Mathf.CeilToInt(worldWidth / nodeSize);
         maxNodesY = Mathf.CeilToInt(worldHeight / nodeSize);
 
         BoxCollider2D c = new BoxCollider2D();
-        
 
-        Nodes = new Node[maxNodesX,maxNodesY];
-        for(int y = 0; y < maxNodesY; y++)
+
+        Nodes = new Node[maxNodesX, maxNodesY];
+        for (int y = 0; y < maxNodesY; y++)
         {
-            for(int x = 0; x < maxNodesX; x++)
+            for (int x = 0; x < maxNodesX; x++)
             {
                 Vector3 newNodePos = new Vector3(topLeftPos.x + (nodeSize * x), topLeftPos.y + (nodeSize * y), 1);
                 BoxCollider2D[] cols = new BoxCollider2D[2];
-                
+
                 Nodes[x, y] = new Node(newNodePos.x, newNodePos.y, x, y, Mathf.Infinity);
-        
+
 
             }
 
-           
+
         }
         int mem = 0;
         Debug.Log("Memory count" + mem.ToString());
         if (obMemory.Count > 0)
         {
-            
-            for( mem = 0; mem < obMemory.Count; mem++)
+
+            for (mem = 0; mem < obMemory.Count; mem++)
             {
                 obMemory[mem].isObstical = true;
                 obMemory[mem].col = Color.black;
@@ -79,10 +79,10 @@ public class NavGrid : MonoBehaviour
 
             }
         }
-        
-         
-       
-        
+
+
+
+
 
         created = true;
         //findPath(Nodes[7, 1], Nodes[1, 8]);
@@ -92,7 +92,7 @@ public class NavGrid : MonoBehaviour
     void OnDrawGizmos()
     {
         // Draw a semitransparent blue cube at the transforms position
-        
+
         if (created)
         {
             for (int y = 0; y < maxNodesY; y++)
@@ -101,7 +101,7 @@ public class NavGrid : MonoBehaviour
                 {
                     Gizmos.color = Nodes[x, y].col;
                     Vector3 truePos = new Vector3(Nodes[x, y].position.x - nodeSize / 2, Nodes[x, y].position.y - nodeSize / 2, 1);
-                    Gizmos.DrawCube(Nodes[x,y].position, new Vector3(nodeSize, nodeSize, 1));
+                    Gizmos.DrawCube(Nodes[x, y].position, new Vector3(nodeSize, nodeSize, 1));
                     Gizmos.color = Color.black;
                     Gizmos.DrawCube(Nodes[x, y].position, new Vector3(0.1f, 0.1f, 0.1f));
 
@@ -111,7 +111,7 @@ public class NavGrid : MonoBehaviour
         }
     }
 
-    public Node[] findPath(Vector3 startPos,Vector3 endPos)
+    public Node[] findPath(Vector3 startPos, Vector3 endPos)
     {
         createNodes();
 
@@ -144,12 +144,12 @@ public class NavGrid : MonoBehaviour
             for (int i = 0; i < openlist.Count; i++)
             {
                 Node tempNode = openlist[i];
-                if(tempNode.fcost < currentFcost)
+                if (tempNode.fcost < currentFcost)
                 {
                     currentFcost = tempNode.fcost;
                     CurrentNode = tempNode;
                     currentIndex = i;
-                   
+
 
                 }
 
@@ -158,11 +158,11 @@ public class NavGrid : MonoBehaviour
 
             }
 
-            if(CurrentNode == endNode)
+            if (CurrentNode == endNode)
             {
                 List<Node> path = new List<Node>();
                 Node closedNode = closedList[closedList.Count - 1];
-                while (closedNode != null){
+                while (closedNode != null) {
                     closedNode.col = Color.blue;
 
                     path.Add(closedNode);
@@ -173,19 +173,19 @@ public class NavGrid : MonoBehaviour
                 endNode.col = Color.green;
                 //path.Reverse();
                 return path.ToArray();
-                
+
 
 
             }
 
             List<Node> neighbours = CurrentNode.getNeighbours(Nodes);
 
-            for(int n = 0; n < neighbours.Count; n++)
+            for (int n = 0; n < neighbours.Count; n++)
             {
                 Node node = neighbours[n];
-                if(node.isObstical == false)
+                if (node.isObstical == false)
                 {
-                    if(CurrentNode.gcost + nodeSize < node.gcost)
+                    if (CurrentNode.gcost + nodeSize < node.gcost)
                     {
                         node.gcost = CurrentNode.gcost + nodeSize;
                         node.parent = CurrentNode;
@@ -193,7 +193,7 @@ public class NavGrid : MonoBehaviour
                         node.setFcost();
 
                     }
-                    if(!closedList.Contains(node) && !openlist.Contains(node))
+                    if (!closedList.Contains(node) && !openlist.Contains(node))
                     {
                         openlist.Add(node);
                         node.col = Color.yellow;
@@ -215,21 +215,22 @@ public class NavGrid : MonoBehaviour
     public Node getNodeAt(Vector3 pos)
     {
         //Debug.Log(pos);
-        int trueX = Mathf.RoundToInt(pos.x + worldWidth/2);
-        int trueY = Mathf.RoundToInt(pos.y + worldHeight/2);
+        int trueX = Mathf.RoundToInt(pos.x + worldWidth / 2);
+        int trueY = Mathf.RoundToInt(pos.y + worldHeight / 2);
 
         int x = Mathf.RoundToInt(trueX / nodeSize);
         int y = Mathf.RoundToInt(trueY / nodeSize);
 
         //int mx = Mathf.RoundToInt(maxNodesX - 1 * x);
         //int my = Mathf.RoundToInt(maxNodesY - 1 * y);
-       // Debug.Log(x.ToString() + " " + y.ToString());
+        // Debug.Log(x.ToString() + " " + y.ToString());
 
 
         return Nodes[x, y];
     }
+}
 
-    public void makeObs(GameObject o)
+    /*public void makeObs(GameObject o)
     {
 
 
@@ -243,7 +244,7 @@ public class NavGrid : MonoBehaviour
         int AH = Mathf.CeilToInt(o.transform.lossyScale.y / nodeSize);
         Debug.Log(trueX.ToString() + " " + trueY.ToString());
         Debug.Log(AW.ToString() + " " + AH.ToString());
-        obMemory.Add(Nodes[x, trueY]);
+        obMemory.Add(Nodes[x], true[Y]);
         for (int x = trueX; x < trueX + AH;x++)
         {
             obMemory.Add(Nodes[x, trueY]);
@@ -251,3 +252,4 @@ public class NavGrid : MonoBehaviour
     }
 
 }
+*/

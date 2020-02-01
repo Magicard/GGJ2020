@@ -6,9 +6,12 @@ public class creationScript : MonoBehaviour
 {
     public GameObject box;
     public bool oneInHand = false;
-    public GameObject box2;
+    public GameObject barrier;
+    public GameObject sentry;
+    public GameObject reinforced;
     public GameObject camera;
     public GameObject shopChoice;
+    public int weaponChosen;
 
     // Start is called before the first frame update
     void Start()
@@ -19,27 +22,72 @@ public class creationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        buyBarrierScript barrier = shopChoice.GetComponent<buyBarrierScript>();
-
-        if (barrier.amountOfBarriers > 0)
+        if (Input.GetKeyDown("1"))
         {
-            if (oneInHand== false)
+            weaponChosen = 1;
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            weaponChosen = 2;
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            weaponChosen = 3;
+        }
+
+        if (weaponChosen == 0)
+        {
+            buyBarrierScript barrier = shopChoice.GetComponent<buyBarrierScript>();
+            if (barrier.amountOfBarriers > 0)
             {
-                placementMode();
+                if (oneInHand == false)
+                {
+                    placementModeBarrier();
+                }
             }
-            if (Input.GetButtonDown("Fire1"))
+        }
+        else if(weaponChosen == 1)
+        {
+            buyBarrierScript barrier = shopChoice.GetComponent<buyBarrierScript>();
+            if (barrier.amountOfBarriers > 0)
             {
-                Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray2))
-                    barrier.amountOfBarriers--;
+                if (oneInHand == false)
+                {
+                    placementModeSentry();
+                }
+            }
+        }
+        else if (weaponChosen == 2)
+        {
+            buyBarrierScript barrier = shopChoice.GetComponent<buyBarrierScript>();
+            if (barrier.amountOfBarriers > 0)
+            {
+                if (oneInHand == false)
+                {
+                    placementModeReinforced();
+                }
             }
         }
     }
 
-    void placementMode()
+    void placementModeBarrier()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Instantiate(box2, ray.GetPoint(Vector3.Distance(camera.transform.position, transform.position) - 10f), transform.rotation);
+        Instantiate(barrier, ray.GetPoint(Vector3.Distance(camera.transform.position, transform.position) - 10f), transform.rotation);
+        oneInHand = true;
+    }
+
+    void placementModeSentry()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Instantiate(sentry, ray.GetPoint(Vector3.Distance(camera.transform.position, transform.position) - 10f), transform.rotation);
+        oneInHand = true;
+    }
+
+    void placementModeReinforced()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Instantiate(reinforced, ray.GetPoint(Vector3.Distance(camera.transform.position, transform.position) - 10f), transform.rotation);
         oneInHand = true;
     }
 }

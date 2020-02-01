@@ -3825,16 +3825,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 3659040314229374080, guid: c05bc74cfff4fbe4a9b7942e77da0982,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6607961487477802003, guid: c05bc74cfff4fbe4a9b7942e77da0982,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c05bc74cfff4fbe4a9b7942e77da0982,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3910,6 +3900,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2598093664754c9478cf229d96d81a4f, type: 2}
+    - target: {fileID: 3659040314229374080, guid: c05bc74cfff4fbe4a9b7942e77da0982,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6607961487477802003, guid: c05bc74cfff4fbe4a9b7942e77da0982,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05bc74cfff4fbe4a9b7942e77da0982, type: 3}
 --- !u!4 &1118642120 stripped
@@ -6030,6 +6030,11 @@ PrefabInstance:
       propertyPath: shopChoice
       value: 
       objectReference: {fileID: 6081121872601630102}
+    - target: {fileID: 2097976402, guid: 748544abe1dbf1f429951eda1c1749b3, type: 3}
+      propertyPath: barrier
+      value: 
+      objectReference: {fileID: 4890703153200322337, guid: efd734a004ec2c64f984a96f95700aa5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748544abe1dbf1f429951eda1c1749b3, type: 3}
 --- !u!1 &1526208460
@@ -11637,7 +11642,7 @@ GameObject:
   - component: {fileID: 2056404468}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12486,7 +12491,7 @@ GameObject:
   - component: {fileID: 6081121872432469880}
   m_Layer: 5
   m_Name: Scroll View 1 1
-  m_TagString: Untagged
+  m_TagString: shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

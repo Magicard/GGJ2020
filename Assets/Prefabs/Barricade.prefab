@@ -93,7 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818af71221da9444bae96a46b65a436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barricade: {fileID: 4890703153200322337, guid: 4896a8c952c3fd84dbd2d1fc4470db0e,
+  barricade: {fileID: 4890703153200322337, guid: 9b880406fd587cb4d80053388eb1f094,
     type: 3}
   hud: {fileID: 3971249689338493903, guid: 4caa02ac838806947879d26a13448c43, type: 3}
   moveSpeed: 10
+  sh: {fileID: 0}
+  br: {fileID: 0}
+  shopping: {fileID: 0}
