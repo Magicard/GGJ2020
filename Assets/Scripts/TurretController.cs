@@ -66,7 +66,7 @@ public class TurretController : MonoBehaviour
             turretLastFireTime = Time.time;
 
             //attack
-            turretTarget.GetComponent<DamagableObject>().RecieveHit(5);
+            turretTarget.GetComponent<DamagableObject>().RecieveHit(turretDamage);
         }
         else
         {

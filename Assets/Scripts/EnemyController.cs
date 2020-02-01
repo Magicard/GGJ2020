@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public GameObject head;
     public GameObject ArmL;
     public GameObject ArmR;
+    public GameObject deathPrefab;
 
     // Start is called before the first frame update
 
@@ -125,6 +126,15 @@ public class EnemyController : MonoBehaviour
         if(player == null)
         {
             laserNotFire(rotationpoint);
+            var turretfind = FindObjectOfType<TurretController>();
+            if(turretfind!=null)
+                player = turretfind.gameObject;
+            else
+            {
+                var playerfind = FindObjectOfType<PlayerController>();
+                if (playerfind != null)
+                    player = playerfind.gameObject;
+            }
             return;
         }
 
@@ -160,7 +170,6 @@ public class EnemyController : MonoBehaviour
         //attack
         player.GetComponent<DamagableObject>().RecieveHit(5*Time.deltaTime);
         var flash = rotationpoint.GetComponentInChildren<ParticleSystem>();
-        Debug.Log("effect", flash);
         if (!flash.isPlaying)
             flash.Play();
     }
@@ -204,5 +213,6 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log("Enemy Destroyed", this);
         Destroy(this.gameObject);
+        Instantiate(deathPrefab, transform.position, transform.rotation);
     }
 }

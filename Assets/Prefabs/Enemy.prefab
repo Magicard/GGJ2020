@@ -5051,7 +5051,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3057639521161471486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -3.17, z: -14.954667}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 987515777629128733}
@@ -5076,6 +5076,8 @@ MonoBehaviour:
   head: {fileID: 1970331526229334862}
   ArmL: {fileID: 6356557130284094946}
   ArmR: {fileID: 7654587929243262679}
+  deathPrefab: {fileID: 4707949140369416488, guid: 80b0597857cd4c241b00dbc54bee88b8,
+    type: 3}
   speed: 0.5
   targetIndex: 0
   nav: {fileID: 0}
