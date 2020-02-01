@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class CountdownController : MonoBehaviour
 {
+
     private Text text;
     public float progress;
     public float increment;
+    public float timer= 0;
+    public const float finished= 300;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +25,10 @@ public class CountdownController : MonoBehaviour
         string progressString = string.Format("Progress {0:000.00}%", progress);
         Debug.Log(progressString);
         text.text = progressString;
+        timer += Time.deltaTime;
+        progress = (timer/ finished)* 100;
+        Debug.Log(progress);
     }
 
-    void FixedUpdate()
-    {
-        progress += increment;
-    }
+
 }

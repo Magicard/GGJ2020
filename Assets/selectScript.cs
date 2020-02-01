@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class selectScript : MonoBehaviour
 {
+    public GameObject gameUI;
     public GameObject exitBtn;
     public GameObject cameraObj;
-    public GameObject cameraObj2;
     public GameObject newBtn;
     public bool selectOption = true;
     public bool down = false;
@@ -20,10 +20,6 @@ public class selectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cameraObj.transform.rotation.x == cameraObj2.transform.rotation.x)
-        {
-            GetComponent<selectScript>().enabled = false;
-        }
         if (Input.GetKeyDown("s"))
         {
             down = true;
@@ -55,6 +51,8 @@ public class selectScript : MonoBehaviour
             if (selectOption == true)
             {
                 cameraObj.GetComponent<startScript>().enabled = true;
+                Invoke("setGameUIActive", 7);
+
             }
             else if (selectOption == false)
             {
@@ -64,9 +62,9 @@ public class selectScript : MonoBehaviour
         
     }
 
-    void moveButtonDown()
+    void setGameUIActive()
     {
-
+        gameUI.SetActive(true);
     }
 
 }
