@@ -23,11 +23,9 @@ public class CountdownController : MonoBehaviour
     void Update()
     {
         string progressString = string.Format("Progress {0:000.00}%", progress);
-        Debug.Log(progressString);
         text.text = progressString;
         timer += Time.deltaTime;
         progress = (timer/ finished)* 100;
-        Debug.Log(progress);
     }
 
 

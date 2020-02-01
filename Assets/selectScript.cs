@@ -9,7 +9,6 @@ public class selectScript : MonoBehaviour
     public GameObject cameraObj;
     public GameObject newBtn;
     public bool selectOption = true;
-    public bool stopMoving = false;
     public bool down = false;
     public bool up = false;
     // Start is called before the first frame update
@@ -40,7 +39,7 @@ public class selectScript : MonoBehaviour
             down = false;
             selectOption = true;
         }
-        if (up == true)
+        if (up == true )
         {
             Vector3 newPos = new Vector3(newBtn.transform.position.x / 7, newBtn.transform.position.y, newBtn.transform.position.z);
             transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * 8f);
@@ -65,7 +64,6 @@ public class selectScript : MonoBehaviour
 
     void setGameUIActive()
     {
-        stopMoving = true;
         gameUI.SetActive(true);
     }
 
