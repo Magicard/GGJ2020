@@ -15,8 +15,7 @@ public class TurretController : MonoBehaviour
 
     public int turretAmmoMax;
     public int turretAmmo;
-    public float turretHealthMax;
-    public float turretHealth;
+    public float turretDamage;
 
     //turret internal status
     private float turretLastFireTime;
@@ -30,6 +29,10 @@ public class TurretController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(turretTarget==null)
+        {
+            return;
+        }
         //get angle to target
         Vector2 targetPositionVector = turretTarget.transform.position - transform.position;
         float targetAngle = Vector2.SignedAngle(transform.up, targetPositionVector);
@@ -56,6 +59,9 @@ public class TurretController : MonoBehaviour
             turretFireSmoke.Play();
             turretAmmo -= 1;
             turretLastFireTime = Time.time;
+
+            //attack
+            turretTarget.GetComponent<DamagableObject>().RecieveHit(5);
         }
         else
         {
