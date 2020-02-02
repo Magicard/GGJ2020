@@ -406,8 +406,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7cb599917cf594181ae87ab0b82018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nose: {fileID: 0}
-  particle: {fileID: 0}
+  currentGun: {fileID: 0}
+  guns: []
+  currentGunIndex: 0
+  maxGunIndex: 0
+  miniGunBulSpeed: 10
+  miniGunBullet: {fileID: 0}
 --- !u!58 &2097976406
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -450,5 +454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7cb599917cf594181ae87ab0b82018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nose: {fileID: 0}
-  particle: {fileID: 0}
+  currentGun: {fileID: 0}
+  guns: []
+  currentGunIndex: 0
+  maxGunIndex: 0
+  miniGunBulSpeed: 10
+  miniGunBullet: {fileID: 3433302694545661716, guid: 985928ea3960f2145a517a3eb2e549ba,
+    type: 3}

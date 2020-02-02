@@ -13,6 +13,7 @@ TagManager:
   - turret
   - beattle
   - enemy
+  - bullet
   layers:
   - Default
   - TransparentFX
