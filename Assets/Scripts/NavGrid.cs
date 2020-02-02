@@ -67,7 +67,6 @@ public class NavGrid : MonoBehaviour
 
         }
         int mem = 0;
-        Debug.Log("Memory count" + mem.ToString());
         if (obMemory.Count > 0)
         {
 

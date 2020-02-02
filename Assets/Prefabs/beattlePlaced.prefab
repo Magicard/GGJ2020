@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6065673867168149965
+--- !u!1 &4890703153200322337
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6065673867168149960}
-  - component: {fileID: 6065673867168149967}
-  - component: {fileID: 6065673867168149966}
+  - component: {fileID: 4890703153200322342}
+  - component: {fileID: 4890703153200322343}
   m_Layer: 0
-  m_Name: Turret Placing
-  m_TagString: turret
+  m_Name: beattlePlaced
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6065673867168149960
+--- !u!4 &4890703153200322342
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065673867168149965}
+  m_GameObject: {fileID: 4890703153200322337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.177427, y: -5.7969265, z: -0.39523932}
-  m_LocalScale: {x: 0.24557172, y: 0.24557172, z: 0.24557172}
+  m_LocalPosition: {x: -97.924, y: -18.124, z: -52.335968}
+  m_LocalScale: {x: 0.23258069, y: 0.7097178, z: 0.31515}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6065673867168149967
+--- !u!212 &4890703153200322343
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065673867168149965}
+  m_GameObject: {fileID: 4890703153200322337}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -49,7 +48,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a6bd8f1517854874d969dc1a4359e88c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70,33 +69,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 11141d802183a614cb6aa8cb105e07c7, type: 3}
-  m_Color: {r: 0.35988876, g: 1, b: 0.3443396, a: 0.56078434}
+  m_Sprite: {fileID: 21300000, guid: 061272e980a7fae4eb3470098fd97c9e, type: 3}
+  m_Color: {r: 0.9607843, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.81, y: 0.97}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6065673867168149966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6065673867168149965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818af71221da9444bae96a46b65a436a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barricade: {fileID: 8973825960862974208, guid: 6aa2d14f956cf1c4cbe29d7b567602da,
-    type: 3}
-  hud: {fileID: 0}
-  moveSpeed: 10
-  sh: {fileID: 0}
-  br: {fileID: 0}
-  shopping: {fileID: 0}

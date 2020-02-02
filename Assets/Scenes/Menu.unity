@@ -5965,6 +5965,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4890703153200322337, guid: efd734a004ec2c64f984a96f95700aa5,
         type: 3}
+    - target: {fileID: 2097976402, guid: 748544abe1dbf1f429951eda1c1749b3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 748544abe1dbf1f429951eda1c1749b3, type: 3}
 --- !u!1 &1526208460
@@ -8128,6 +8132,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1517712645}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2097976407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097976398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13d0f8146a71f84faf0ab33ad42c375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 2135472802}
+  oneInHand: 0
+  barrier: {fileID: 4890703153200322337, guid: efd734a004ec2c64f984a96f95700aa5, type: 3}
+  turret: {fileID: 6065673867168149965, guid: 955a8ca9f0051bc499d04c7a1c25d51e, type: 3}
+  beattle: {fileID: 4890703153200322337, guid: d9c505dfa903d014585de58a242e3cbc, type: 3}
+  weaponChosen: 0
 --- !u!1 &2114565699
 GameObject:
   m_ObjectHideFlags: 0
