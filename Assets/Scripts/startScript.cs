@@ -15,7 +15,7 @@ public class startScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Invoke("stop", 7);
+        Invoke("stop", 1);
         if (stopMoving == false)
         {
             Vector3 newPos = new Vector3(transform.position.x, 0f, transform.position.z);

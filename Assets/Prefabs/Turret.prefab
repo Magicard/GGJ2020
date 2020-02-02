@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 3652800166488358834}
   - component: {fileID: 2741501343099052144}
   - component: {fileID: 3100857307161486127}
+  - component: {fileID: -1938831948365025854}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -295,6 +296,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3011854c5f2a6434e989c9d8280119c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coliding: 0
+--- !u!61 &-1938831948365025854
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973825960862974208}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.100962564}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.78685737, y: 0.95512795}
+  m_EdgeRadius: 0
 --- !u!1 &8975917192053925146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,6 +5220,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2097319705679664606}
     m_Modifications:
+    - target: {fileID: 4621774470162368188, guid: 1fc432d42d289084690eb3d8c0b5010b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.11260939
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621774470162368188, guid: 1fc432d42d289084690eb3d8c0b5010b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3499167278953340347, guid: 1fc432d42d289084690eb3d8c0b5010b,
         type: 3}
       propertyPath: m_Name
@@ -5321,16 +5359,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.g
       value: 0.009567461
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621774470162368188, guid: 1fc432d42d289084690eb3d8c0b5010b,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.11260939
-      objectReference: {fileID: 0}
-    - target: {fileID: 4621774470162368188, guid: 1fc432d42d289084690eb3d8c0b5010b,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc432d42d289084690eb3d8c0b5010b, type: 3}

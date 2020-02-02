@@ -200,9 +200,12 @@ public class EnemyController : MonoBehaviour
     void getPath()
     {
 
-        moving = true;
-        Node[] path = n.findPath(transform.position, targetTo);
-
+        if (targetTo == null)
+        {
+            targetTo = player.transform.position;
+        }
+        Debug.Log(targetTo);
+        Node[] path = nav.GetComponent<NavGrid>().findPath(transform.position, targetTo);
 
         /*
         List<Vector3> tempPos = new List<Vector3>();
@@ -225,6 +228,7 @@ public class EnemyController : MonoBehaviour
     public void OnDeath(UnityEngine.EventSystems.BaseEventData data)
     {
 
+        FindObjectOfType<ResourceManager>().CollectScrap(120);
         Instantiate(moneySign, transform.position, moneySign.transform.rotation);
         Debug.Log("Enemy Destroyed", this);
         Destroy(this.gameObject);

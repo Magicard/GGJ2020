@@ -51,7 +51,7 @@ public class selectScript : MonoBehaviour
             if (selectOption == true)
             {
                 cameraObj.GetComponent<startScript>().enabled = true;
-                Invoke("setGameUIActive", 7);
+                Invoke("setGameUIActive", 1);
 
             }
             else if (selectOption == false)
@@ -65,6 +65,8 @@ public class selectScript : MonoBehaviour
     void setGameUIActive()
     {
         gameUI.SetActive(true);
+        FindObjectOfType<CountdownController>().gameRunning = true;
+        
     }
 
 }

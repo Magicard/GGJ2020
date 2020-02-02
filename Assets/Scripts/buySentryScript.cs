@@ -7,6 +7,7 @@ public class buySentryScript : MonoBehaviour
 {
     public Button yourButton;
     public int amountOfSentry = 0;
+    public int cost = 150;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,10 @@ public class buySentryScript : MonoBehaviour
     // Update is called once per frame
     void TaskOnClick()
     {
-        Debug.Log("yeah");
-        amountOfSentry ++ ;
+        if (FindObjectOfType<ResourceManager>().scrap >= cost)
+        {
+            FindObjectOfType<ResourceManager>().SpendScrap(cost);
+            amountOfSentry += 1;
+        }
     }
 }

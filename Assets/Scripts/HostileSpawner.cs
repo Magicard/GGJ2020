@@ -23,8 +23,10 @@ public class HostileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(string.Format("{0}", getHostileCount()));
         if(getHostileCount()<hostilecount || lastspawn < (Time.time - 10))
         {
+            Debug.Log("spawning attempt");
             if (spawning == false)
             {
                 Invoke("SpawnHostile", Random.Range(0.0f, 5.0f));
@@ -45,7 +47,6 @@ public class HostileSpawner : MonoBehaviour
         Debug.Log(string.Format("spawning enemy at {0}",pointID));
         var hostile = GameObject.Instantiate(hostilePrefab, spawnPoints[pointID].transform);
         hostile.GetComponent<EnemyController>().nav = FindObjectsOfType<NavGrid>()[0].gameObject;
-        hostile.GetComponent<EnemyController>().player = FindObjectsOfType<TurretController>()[0].gameObject;
         spawning = false;
         lastspawn = Time.time;
     }

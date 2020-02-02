@@ -8,20 +8,35 @@ using UnityEngine;
 public class RepairableObject : MonoBehaviour
 {
     private bool repairing;
-
+    public bool coliding;
     private float repairCounter;
+    GameObject player;
 
     private int requiredAtStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        coliding = false;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (coliding== true)
+        {
+            Debug.Log("peepeepeepeepeepeepeepeepeepeepeepeepeepee");
+            if (Input.GetKey("f"))
+            {
+                StartRepair();
+            }
+            else
+            {
+                StopRepair();
+            }
+        }
+
         if(repairing)
         {
             repairCounter += 5 * Time.deltaTime;
@@ -134,5 +149,18 @@ public class RepairableObject : MonoBehaviour
             }
         }
         return spent;
+    }
+
+    void OnCollisionEnter2D(Collision2D player)
+    {
+        if (player.gameObject.tag == "Player")
+        {
+            coliding = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D player)
+    {
+        coliding = false;
     }
 }

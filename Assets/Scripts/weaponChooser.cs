@@ -53,6 +53,15 @@ public class weaponChooser : MonoBehaviour
                 weaponChosen = 3;
             }
         }
+        else if (Input.GetKeyDown("4"))
+        {
+
+            if (weaponChosen != 4)
+            {
+                spawnGun();
+                weaponChosen = 4;
+            }
+        }
     }
 
     void spawnBarrier()
@@ -89,6 +98,17 @@ public class weaponChooser : MonoBehaviour
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Instantiate(beattle, ray.GetPoint(Vector3.Distance(camera.transform.position, transform.position) - 10f), transform.rotation);
+        oneInHand = true;
+    }
+    void spawnGun()
+    {
+        oneInHand = false;
+        if (barrier.activeSelf == true || turret.activeSelf == true)
+        {
+            DestroyImmediate(GameObject.FindGameObjectWithTag("barrier"));
+            DestroyImmediate(GameObject.FindGameObjectWithTag("turret"));
+            DestroyImmediate(GameObject.FindGameObjectWithTag("beattle"));
+        }
         oneInHand = true;
     }
 }
