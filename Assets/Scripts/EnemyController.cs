@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject moneySign;
+
     //robot objects
     public GameObject head;
     public GameObject ArmL;
@@ -222,6 +224,10 @@ public class EnemyController : MonoBehaviour
 
     public void OnDeath(UnityEngine.EventSystems.BaseEventData data)
     {
+        var tempRot = moneySign.transform.rotation;
+        tempRot.x = 90f;
+        moneySign.transform.rotation = tempRot;
+        Instantiate(moneySign, transform.position, moneySign.transform.rotation);
         Debug.Log("Enemy Destroyed", this);
         Destroy(this.gameObject);
         Instantiate(deathPrefab, transform.position, transform.rotation);

@@ -5074,6 +5074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0f12b6946ba57429658c8ac90cdffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneySign: {fileID: 6813020294634644355, guid: adedb0d7361adee41877f2586c24ede3,
+    type: 3}
   head: {fileID: 1970331526229334862}
   ArmL: {fileID: 6356557130284094946}
   ArmR: {fileID: 7654587929243262679}
