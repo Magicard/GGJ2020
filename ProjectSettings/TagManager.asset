@@ -9,6 +9,9 @@ TagManager:
   - barrier
   - turret
   - beattle
+  - buttonBb
+  - buttonSt
+  - buttonBr
   layers:
   - Default
   - TransparentFX
