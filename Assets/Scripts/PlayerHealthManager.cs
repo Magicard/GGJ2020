@@ -53,7 +53,7 @@ public class PlayerHealthManager : MonoBehaviour
                         if (colourmode != 4)
                         {
                             colourmode = 4;
-                            GetComponent<ArtNetInterface>().SetColour(3);
+                            GetComponent<ArtNetInterface>().SetColour(4);
                         }
                     }
                 }
