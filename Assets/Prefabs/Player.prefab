@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849048972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.12, z: -0.65}
+  m_LocalPosition: {x: 0, y: -0.04, z: -0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6709824583789901273}
@@ -105,12 +105,15 @@ GameObject:
   - component: {fileID: 6709824583789901279}
   - component: {fileID: 2097976402}
   - component: {fileID: 348795876323535390}
+  - component: {fileID: 7416628714177312831}
   - component: {fileID: 2097976405}
+  - component: {fileID: 7416628714177312830}
   - component: {fileID: 2097976406}
   - component: {fileID: -5558899776042127485}
+  - component: {fileID: 7416628714177312829}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6709824583789901275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.676}
   m_LocalScale: {x: 0.73, y: 0.73, z: 0.73}
   m_Children:
   - {fileID: 1849048973}
@@ -316,8 +319,9 @@ MonoBehaviour:
   box: {fileID: 4890703153200322337, guid: 4896a8c952c3fd84dbd2d1fc4470db0e, type: 3}
   oneInHand: 0
   barrier: {fileID: 4890703153200322337, guid: efd734a004ec2c64f984a96f95700aa5, type: 3}
-  sentry: {fileID: 0}
-  reinforced: {fileID: 0}
+  sentry: {fileID: 6065673867168149965, guid: 955a8ca9f0051bc499d04c7a1c25d51e, type: 3}
+  reinforced: {fileID: 4890703153200322337, guid: 4652857469b0f71428363e63ad09b0a7,
+    type: 3}
   camera: {fileID: 0}
   shopChoice: {fileID: 0}
   weaponChosen: 0
@@ -351,6 +355,24 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &7416628714177312831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709824583789901275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13d0f8146a71f84faf0ab33ad42c375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  oneInHand: 0
+  barrier: {fileID: 4890703153200322337, guid: efd734a004ec2c64f984a96f95700aa5, type: 3}
+  turret: {fileID: 6065673867168149965, guid: 955a8ca9f0051bc499d04c7a1c25d51e, type: 3}
+  beattle: {fileID: 4890703153200322337, guid: d9c505dfa903d014585de58a242e3cbc, type: 3}
+  weaponChosen: 0
 --- !u!50 &2097976405
 Rigidbody2D:
   serializedVersion: 4
@@ -372,6 +394,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7416628714177312830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709824583789901275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7cb599917cf594181ae87ab0b82018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nose: {fileID: 0}
+  particle: {fileID: 0}
 --- !u!58 &2097976406
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -400,3 +436,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a0673f233b9ec4ba812f4479eec235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getBig: 0
+  incSpeed: 1.5
+--- !u!114 &7416628714177312829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709824583789901275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7cb599917cf594181ae87ab0b82018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nose: {fileID: 0}
+  particle: {fileID: 0}
