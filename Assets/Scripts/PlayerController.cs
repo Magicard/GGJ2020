@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float fullSpeed;
 
     private LineRenderer lr;
+    private SpriteRenderer sr;
 
 
 
@@ -34,6 +35,11 @@ public class PlayerController : MonoBehaviour
         halfSpeed = speed / 2;
         fullSpeed = speed;
         lr = GetComponent<LineRenderer>();
+        sr = GetComponent<SpriteRenderer>();
+
+        //sr.transform.rotation = Quaternion.Euler(0, 0, -90f);
+
+
 
 
     }
@@ -68,11 +74,11 @@ public class PlayerController : MonoBehaviour
         float angle = (180 / Mathf.PI) * AngleRad;
 
         float dir = Vector3.Angle(gameObject.transform.position, realMousePos);
-        gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, gameObject.transform.rotation.y, angle);
+        gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, gameObject.transform.rotation.y, angle-90);
 
 
 
-        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.right,9999,layerMask:LayerMask.GetMask("wall","enemy"));
+        RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position,gameObject.transform.up,9999,layerMask:LayerMask.GetMask("wall","enemy"));
         Vector3 hitPos = Vector3.zero;
 
         if (hit.collider != null)
@@ -85,12 +91,12 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                hitPos = gameObject.transform.right * 99999;
+                hitPos = gameObject.transform.up * 99999;
             }
         }
         else
         {
-            hitPos = gameObject.transform.right * 99999;
+            hitPos = gameObject.transform.up * 99999;
         }
 
         

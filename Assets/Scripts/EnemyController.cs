@@ -22,6 +22,9 @@ public class EnemyController : MonoBehaviour
     public GameObject nav;
     public GameObject player;
     Vector3 targetTo;
+    NavGrid n;
+
+
 
 
 
@@ -31,6 +34,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         target = player.transform.position;
+        n = nav.GetComponent<NavGrid>();
+
 
     }
 
@@ -188,8 +193,8 @@ public class EnemyController : MonoBehaviour
     {
 
         moving = true;
-        Node[] path = nav.GetComponent<NavGrid>().findPath(transform.position, targetTo);
-        
+        Node[] path = n.findPath(transform.position, targetTo);
+
 
         /*
         List<Vector3> tempPos = new List<Vector3>();

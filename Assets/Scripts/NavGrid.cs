@@ -36,13 +36,20 @@ public class NavGrid : MonoBehaviour
         worldHeight = basePlate.transform.lossyScale.y;
 
 
+
         topLeftPos = new Vector3(basePlate.position.x - (worldWidth / 2), basePlate.position.y - (worldHeight / 2), 0);
+        obMemory.Add(Nodes[2, 2]);
         createNodes();
+        
+
 
 
 
     }
-
+    void Update()
+    {
+        
+    }
     void createNodes()
     {
         maxNodesX = Mathf.CeilToInt(worldWidth / nodeSize);
@@ -67,7 +74,7 @@ public class NavGrid : MonoBehaviour
 
         }
         int mem = 0;
-        Debug.Log("Memory count" + mem.ToString());
+        Debug.Log("Memory count" + obMemory.Count.ToString());
         if (obMemory.Count > 0)
         {
 
@@ -113,6 +120,8 @@ public class NavGrid : MonoBehaviour
 
     public Node[] findPath(Vector3 startPos, Vector3 endPos)
     {
+        Node[,] tempNodes = Nodes;
+        
         createNodes();
 
         //Node startNode = Nodes[Mathf.RoundToInt(startPos.x / nodeSize - topLeftPos.x) , Mathf.RoundToInt(startPos.y / nodeSize - topLeftPos.y)];
