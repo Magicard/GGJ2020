@@ -119,9 +119,9 @@ GameObject:
   - component: {fileID: 3211397894513658973}
   - component: {fileID: 8175008835665796464}
   - component: {fileID: 3916813677928926109}
-  - component: {fileID: -5845297998095145528}
+  - component: {fileID: 1188292929808277100}
   m_Layer: 0
-  m_Name: Brick
+  m_Name: Brick 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960878eed911e7e40b1e03f707b35c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &-5845297998095145528
+--- !u!212 &1188292929808277100
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,11 +235,11 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f593ffb90b4424c448d895774f035332, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9778857, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 1.91}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

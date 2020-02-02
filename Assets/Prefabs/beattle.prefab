@@ -93,10 +93,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818af71221da9444bae96a46b65a436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barricade: {fileID: 4890703153200322337, guid: 6720075a98a98c0498dc7bb020cd68fd,
+  player: {fileID: 0}
+  barricade: {fileID: 4890703153200322337, guid: 4652857469b0f71428363e63ad09b0a7,
     type: 3}
   hud: {fileID: 3971249689338493903, guid: 4caa02ac838806947879d26a13448c43, type: 3}
   moveSpeed: 10
   sh: {fileID: 0}
   br: {fileID: 0}
+  st: {fileID: 0}
+  bb: {fileID: 0}
   shopping: {fileID: 0}
+  wepChoice: 0
