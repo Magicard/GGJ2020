@@ -8,6 +8,7 @@ public class TurretController : MonoBehaviour
     public GameObject turretRotator;
     public ParticleSystem turretFireSmoke;
     public GameObject deathPrefab;
+    public UnityEngine.UI.Image ammoBar;
 
     //Turret Parameters
     public GameObject turretTarget;
@@ -30,6 +31,7 @@ public class TurretController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(turretTarget==null)
         {
             var next = FindObjectOfType<EnemyController>();
@@ -53,6 +55,8 @@ public class TurretController : MonoBehaviour
                 turretFire();
             }
         }
+
+        ammoBar.fillAmount = (float)turretAmmo / (float)turretAmmoMax;
     }
 
     /// <summary>
