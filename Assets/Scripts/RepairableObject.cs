@@ -11,6 +11,8 @@ public class RepairableObject : MonoBehaviour
 
     private float repairCounter;
 
+    private int requiredAtStart;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,11 +46,45 @@ public class RepairableObject : MonoBehaviour
     public void StartRepair()
     {
         repairing = true;
+        requiredAtStart = RepairNeeded();
     }
 
     public void StopRepair()
     {
         repairing = false;
+    }
+
+    public int RepairNeeded()
+    {
+        int needed = 0;
+
+        var turret = GetComponent<TurretController>();
+        if(turret!=null)
+        {
+            needed = (turret.turretAmmoMax - turret.turretAmmo);
+        }
+
+        var health = GetComponent<DamagableObject>();
+        needed += (int)(health.HealthMax - health.Health);
+
+        return needed;
+    }
+
+    public float Progress()
+    {
+        if (!repairing)
+        {
+            return 0.0f;
+        }
+        else
+        {
+            float neededNow = (float)RepairNeeded();
+            float neededStart = (float)requiredAtStart;
+
+            float done = neededNow - neededStart;
+            float percent = (done / neededStart)*100f;
+            return (percent);
+        }
     }
 
     private void Repair(int amount)
