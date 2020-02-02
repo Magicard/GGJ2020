@@ -4,14 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Shootable
+  - buttonBb
+  - buttonBr
   - shop
-  - button
+  - buttonSt
   - barrier
   - turret
   - beattle
-  - buttonBb
-  - buttonSt
-  - buttonBr
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,9 @@ TagManager:
   - UI
   - 
   - 
-  - wall
+  - Lighting
   - enemy
-  - player
+  - Postprocessing
   - 
   - 
   - 
@@ -46,9 +47,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fire
+    uniqueID: 3804908061
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: LR
-    uniqueID: 1383442033
     locked: 0
