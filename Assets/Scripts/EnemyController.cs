@@ -224,9 +224,7 @@ public class EnemyController : MonoBehaviour
 
     public void OnDeath(UnityEngine.EventSystems.BaseEventData data)
     {
-        var tempRot = moneySign.transform.rotation;
-        tempRot.x = 90f;
-        moneySign.transform.rotation = tempRot;
+
         Instantiate(moneySign, transform.position, moneySign.transform.rotation);
         Debug.Log("Enemy Destroyed", this);
         Destroy(this.gameObject);

@@ -14,7 +14,12 @@ public class floatUp : MonoBehaviour
     void Update()
     {
         var tempPos = transform.position;
-        tempPos.y += 0.1f* Time.deltaTime;
+        tempPos.y += 0.5f* Time.deltaTime;
         transform.position = tempPos;
+        gameObject.transform.eulerAngles = new Vector3(
+        gameObject.transform.eulerAngles.x+ 90,
+        gameObject.transform.eulerAngles.y,
+        gameObject.transform.eulerAngles.z
+);
     }
 }
