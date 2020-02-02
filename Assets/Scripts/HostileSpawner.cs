@@ -7,6 +7,9 @@ public class HostileSpawner : MonoBehaviour
     public GameObject[] spawnPoints;
     public GameObject hostilePrefab;
 
+    public int hostilecount;
+    public bool shouldSpawn;
+
     private bool spawning;
     private float lastspawn;
 
@@ -20,7 +23,7 @@ public class HostileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(getHostileCount()<2 || lastspawn < (Time.time - 10))
+        if(getHostileCount()<hostilecount || lastspawn < (Time.time - 10))
         {
             if (spawning == false)
             {
