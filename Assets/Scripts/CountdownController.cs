@@ -10,7 +10,7 @@ public class CountdownController : MonoBehaviour
     public float progress;
     public float increment;
     public float timer= 0;
-    public const float finished= 300;
+    public const float finished= 150;
     public bool gameRunning;
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class CountdownController : MonoBehaviour
             progress = (timer / finished) * 100;
             //Debug.Log(progress);
             FindObjectOfType<HostileSpawner>().shouldSpawn = true;
-            FindObjectOfType<HostileSpawner>().hostilecount = (int)((timer / 30) + 1);
+            FindObjectOfType<HostileSpawner>().hostilecount = (int)((timer / 10) + 2);
         }
     }
 

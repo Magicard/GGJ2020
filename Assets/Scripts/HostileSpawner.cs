@@ -29,7 +29,7 @@ public class HostileSpawner : MonoBehaviour
             Debug.Log("spawning attempt");
             if (spawning == false)
             {
-                Invoke("SpawnHostile", Random.Range(0.0f, 5.0f));
+                Invoke("SpawnHostile", Random.Range(0.0f, 3.0f));
                 spawning = true;
             }
         }
