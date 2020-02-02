@@ -6,6 +6,7 @@ public class PlayerHealthManager : MonoBehaviour
 {
     float lastHealth = 0;
     float colourmode = 0;
+    public UnityEngine.UI.Text text;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class PlayerHealthManager : MonoBehaviour
                 {
                     colourmode = 1;
                     GetComponent<ArtNetInterface>().SetColour(1);
+                    text.color = Color.green;
                 }
             }
             else
@@ -36,6 +38,7 @@ public class PlayerHealthManager : MonoBehaviour
                     {
                         colourmode = 2;
                         GetComponent<ArtNetInterface>().SetColour(2);
+                        text.color = Color.yellow;
                     }
                 }
                 else
@@ -46,6 +49,7 @@ public class PlayerHealthManager : MonoBehaviour
                         {
                             colourmode = 3;
                             GetComponent<ArtNetInterface>().SetColour(3);
+                            text.color = Color.red;
                         }
                     }
                     else
@@ -54,13 +58,14 @@ public class PlayerHealthManager : MonoBehaviour
                         {
                             colourmode = 4;
                             GetComponent<ArtNetInterface>().SetColour(4);
+                            text.color = Color.red;
                         }
                     }
                 }
             }
 
             lastHealth = currentHealth;
-            
+            text.text = string.Format("{0:000.00}%", currentHealth);
         }
     }
 }
