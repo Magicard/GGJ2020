@@ -38,7 +38,7 @@ public class PlayerHealthManager : MonoBehaviour
                     {
                         colourmode = 2;
                         GetComponent<ArtNetInterface>().SetColour(2);
-                        text.color = Color.yellow;
+                        text.color = Color.green;
                     }
                 }
                 else
@@ -50,6 +50,7 @@ public class PlayerHealthManager : MonoBehaviour
                             colourmode = 3;
                             GetComponent<ArtNetInterface>().SetColour(3);
                             text.color = Color.red;
+                            text.transform.Translate(new Vector3(0.0f, 9.0f, 0.0f));
                         }
                     }
                     else
