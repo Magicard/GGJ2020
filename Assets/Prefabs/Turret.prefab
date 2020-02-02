@@ -241,6 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretRotator: {fileID: 2535724631459438019}
   turretFireSmoke: {fileID: 409508830688358726}
+  deathPrefab: {fileID: 4707949140369416488, guid: 80b0597857cd4c241b00dbc54bee88b8,
+    type: 3}
   turretTarget: {fileID: 0}
   turretTranslationSpeed: 1
   turretMinFireIterval: 5

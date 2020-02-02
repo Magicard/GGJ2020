@@ -46,8 +46,9 @@ public class creationScript : MonoBehaviour
                 }
             }
         }
-        else if(weaponChosen == 1)
+        if(weaponChosen == 1)
         {
+
             buyBarrierScript barrier = shopChoice.GetComponent<buyBarrierScript>();
             if (barrier.amountOfBarriers > 0)
             {
@@ -67,6 +68,12 @@ public class creationScript : MonoBehaviour
                     placementModeReinforced();
                 }
             }
+        }
+
+        if (barrier.activeSelf == true && weaponChosen !=1)
+        {
+            Destroy(barrier);
+
         }
     }
 
@@ -90,4 +97,9 @@ public class creationScript : MonoBehaviour
         Instantiate(reinforced, ray.GetPoint(Vector3.Distance(camera.transform.position, transform.position) - 10f), transform.rotation);
         oneInHand = true;
     }
+
+    
+
 }
+
+    

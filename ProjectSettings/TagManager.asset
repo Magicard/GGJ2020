@@ -6,6 +6,12 @@ TagManager:
   tags:
   - shop
   - button
+  - barrier
+  - turret
+  - beattle
+  - buttonBb
+  - buttonSt
+  - buttonBr
   layers:
   - Default
   - TransparentFX

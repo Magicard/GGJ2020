@@ -59,6 +59,7 @@ public class fadeScript : MonoBehaviour
                     col4.color = newCol4;
                     if (timer > 13 )
                     {
+                        Destroy(text);
                         Color oldCol5 = col5.color;
                         Color newCol5 = new Color(oldCol5.r, oldCol5.g, oldCol5.b, oldCol5.a -= 0.5f * Time.deltaTime);
                         col5.color = newCol5;
@@ -68,7 +69,7 @@ public class fadeScript : MonoBehaviour
                         Color oldCol7 = col7.color;
                         Color newCol7 = new Color(oldCol7.r, oldCol7.g, oldCol7.b, oldCol7.a -= 0.5f * Time.deltaTime);
                         col7.color = newCol7;
-                        Destroy(text);
+                        
                     }
                 }
 

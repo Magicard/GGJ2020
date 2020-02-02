@@ -28,7 +28,6 @@ public class openShopScript : MonoBehaviour
         else if (shopActive == true)
         {
             Time.timeScale = 0.2f;
-
             shopActive = false;
             
         }

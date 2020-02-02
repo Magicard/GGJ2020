@@ -136,9 +136,15 @@ public class EnemyController : MonoBehaviour
                 player = turretfind.gameObject;
             else
             {
-                var playerfind = FindObjectOfType<PlayerController>();
-                if (playerfind != null)
-                    player = playerfind.gameObject;
+                var wallfind = FindObjectOfType<barrierController>();
+                if (wallfind != null)
+                    player = wallfind.gameObject;
+                else
+                {
+                    var playerfind = FindObjectOfType<PlayerController>();
+                    if (playerfind != null)
+                        player = playerfind.gameObject;
+                }
             }
             return;
         }

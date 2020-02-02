@@ -5,7 +5,7 @@ using UnityEngine;
 public class startScript : MonoBehaviour
 {
     public bool stopMoving = false;
-    public float tranSpeed = 1f;
+    public float tranSpeed = 50f;
     // Start is called before the first frame update
     void Start()
     {
