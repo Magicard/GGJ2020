@@ -43,10 +43,10 @@ public class TurretController : MonoBehaviour
         Vector2 targetPositionVector = turretTarget.transform.position - transform.position;
         float targetAngle = Vector2.SignedAngle(transform.up, targetPositionVector);
         //rotate turret towards target
-        turretRotator.transform.rotation = Quaternion.Slerp(turretRotator.transform.rotation, Quaternion.Euler(0, 0, targetAngle), Time.deltaTime * turretTranslationSpeed);
+        turretRotator.transform.localRotation = Quaternion.Slerp(turretRotator.transform.localRotation, Quaternion.Euler(0, 0, targetAngle), Time.deltaTime * turretTranslationSpeed);
 
         //check if should fire
-        if ((turretRotator.transform.rotation.eulerAngles.z - targetAngle) % 360 < 3 || (turretRotator.transform.rotation.eulerAngles.z - targetAngle) % 360 > 357)
+        if ((turretRotator.transform.localRotation.eulerAngles.z - targetAngle) % 360 < 3 || (turretRotator.transform.localRotation.eulerAngles.z - targetAngle) % 360 > 357)
         {
             if (Time.time > turretLastFireTime + turretMinFireIterval)
             {
